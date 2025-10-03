@@ -34,6 +34,7 @@ export async function updateTodo ( tno: number, title: string ):Promise<Todo> {
 
     return res.data
 
+
 }
 
 export async function deleteTodo (tno:number):Promise<void> {
