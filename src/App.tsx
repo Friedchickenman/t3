@@ -7,7 +7,11 @@ import {getTodo} from "./apis/todoApi.tsx";
 function App() {
   const [count, setCount] = useState(0)
 
-    console.log(getTodo())
+    getTodo().then((result: Todo) => {
+        console.log(result)
+    }).catch( reason => {
+        console.log(reason)
+    })
 
   return (
     <>
