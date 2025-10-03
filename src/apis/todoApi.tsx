@@ -14,7 +14,7 @@ export async function getTodo(tno: number): Promise<Todo> {
     }
 }
 
-export async function getTodoList ( page:number = 1 , size: number = 10 ) {
+export async function getTodoList ( page:number = 1 , size: number = 10 ): Promise<PageResponse<Todo>> {
 
     const param = {page:page, size:size}
 
@@ -22,4 +22,14 @@ export async function getTodoList ( page:number = 1 , size: number = 10 ) {
         await axios.get(`http://localhost:8080/api/v1/todos/list`, {params: param})
 
     return res.data
+}
+
+export async function updateTodo ( tno: number, title: string ) {
+
+    const res = await axios.put(
+        `http://localhost:8080/api/v1/todos/${tno}`,
+        {title:title, tno:tno} )
+
+    return res.data
+
 }
