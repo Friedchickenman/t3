@@ -40,9 +40,9 @@ export async function deleteTodo (tno:number):Promise<void> {
 
 }
 
-export async function postTodo (todo:Todo): Promise<Todo> {
+export async function postTodo (todo:Todo): Promise<number> {
 
-    const res = await axios.post(`http://localhost:8080/api/v1/todos/`, todo)
+    const res = await axios.post(`http://localhost:8080/api/v1/todos`, todo)
 
     return res.data
 }
