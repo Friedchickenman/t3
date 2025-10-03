@@ -2,14 +2,18 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {getTodoList} from "./apis/todoApi.tsx";
+import {updateTodo} from "./apis/todoApi.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
 
-    getTodoList().then((result: PageResponse<Todo>) => {
-        console.log(result.total)
+    updateTodo(, "React Update 000").then((result:Todo) => {
+        console.log(result)
     })
+
+    // getTodoList().then((result: PageResponse<Todo>) => {
+    //     console.log(result.total)
+    // })
 
     // getTodo().then((result: Todo) => {
     //     console.log(result)
