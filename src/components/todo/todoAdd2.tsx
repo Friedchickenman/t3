@@ -20,7 +20,7 @@ function TodoAdd2() {
         <div>
             <h1>Todo Add2</h1>
             <form>
-
+                <button>SUBMIT</button>
             </form>
         </div>
     );
