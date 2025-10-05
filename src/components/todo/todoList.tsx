@@ -23,8 +23,8 @@ function TodoList() {
 
     //useEffect 쓰는 방법 -- react query 사용
     useEffect(() => {
-        getTodoList().then(result => setData(result))
-    }, []); // []의 경우는 컴포넌트가 로딩되면 한 번 호출
+        getTodoList(page).then(result => setData(result))
+    }, [ page ]); // []의 경우는 컴포넌트가 로딩되면 한 번 호출
 
     //서버에서 렌더링 처리 방법 - Next, Remix
 
@@ -37,7 +37,8 @@ function TodoList() {
             }}>Todo List {page}</h1>
 
             <ul>
-                {data.dtoList.map( todo => <li key={todo.tno}> {todo.tno} </li> )}
+                {data.dtoList.map( todo =>
+                    <li key={todo.tno}> {todo.tno} -- {todo.title} -- {todo.writer} </li> )}
             </ul>
 
         </div>
