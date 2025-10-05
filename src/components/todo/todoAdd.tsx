@@ -6,8 +6,11 @@ const initState:Todo = {
     writer: 'writer'
 }
 
+interface TodoAddProps {
+    changeKey: () => void
+}
 
-function TodoAdd() {
+function TodoAdd({changeKey}: TodoAddProps) {
 
     const [todoAdd, setTodoAdd] = useState(initState)
     const [fetching, setFetching] = useState(false)
@@ -29,6 +32,7 @@ function TodoAdd() {
             postTodo(todoAdd).then(tnoResult => {
                 setFetching(false)
                 setResult(tnoResult)
+                changeKey()
             })
 
         },3000)

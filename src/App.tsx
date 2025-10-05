@@ -1,9 +1,16 @@
 import './App.css'
 import TodoAdd from "./components/todo/todoAdd.tsx";
 import TodoList from "./components/todo/todoList.tsx";
+import {useState} from "react";
 
 
 function App() {
+
+    const [key, setKey] = useState(1)
+
+    const changeKey = () => {
+        setKey(key + 1)
+    }
 
     //const todo:Todo = {title: "React로 생성하는 Todo", writer:"psj"}
 
@@ -28,8 +35,8 @@ function App() {
 
   return (
     <>
-        <TodoAdd/>
-        <TodoList></TodoList>
+        <TodoAdd changeKey={changeKey}/>
+        <TodoList key={key}></TodoList>
     </>
   )
 }
