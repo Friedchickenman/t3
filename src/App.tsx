@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import TodoList from "./components/todo/todoList.tsx";
+import TodoAdd from "./components/todo/todoAdd.tsx";
 
 
 function App() {
@@ -30,7 +27,7 @@ function App() {
 
   return (
     <>
-        <TodoList/>
+        <TodoAdd/>
     </>
   )
 }

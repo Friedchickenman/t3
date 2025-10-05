@@ -21,10 +21,20 @@ function TodoList() {
     //비동기 호출 서버 죽고 무한 반복 호출이 발생한다... 비동기 호출이기 때문에
     //getTodoList().then(result => setData(result))
 
+
     //useEffect 쓰는 방법 -- react query 사용
     useEffect(() => {
-        getTodoList(page).then(result => setData(result))
-    }, [ page ]); // []의 경우는 컴포넌트가 로딩되면 한 번 호출
+        getTodoList(page).then(result => {
+
+            setData(result)
+
+        })
+    }, [ page, ]); //의존성 조건 
+
+    // []의 경우는 컴포넌트가 로딩되면 한 번 호출
+
+    //빈 배열 -  한 번만 호출할 때 사용
+    //배열의 내용물이 기존과 달라지는 경우에 함수가 자동으로 호출
 
     //서버에서 렌더링 처리 방법 - Next, Remix
 
