@@ -13,10 +13,8 @@ function TodoAdd() {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 
         const {name, value} = e.target
-
-        const newState = {...todoAdd, [name]: value}
-
-        setTodoAdd(newState)
+        //새로운 객체를 만듬
+        setTodoAdd( {...todoAdd, [name]: value} )
     }
 
     return (
@@ -25,12 +23,12 @@ function TodoAdd() {
 
             <div>
                 TITLE
-                <input type='text' value={todoAdd.title} onChange={handleChange}></input>
+                <input type='text' name='title' value={todoAdd.title} onChange={handleChange}></input>
             </div>
 
             <div>
                 WRITER
-                <input type='text' value={todoAdd.writer} onChange={handleChange}></input>
+                <input type='text' name='writer' value={todoAdd.writer} onChange={handleChange}></input>
             </div>
             <div>
             <button >SEND</button>
