@@ -1,13 +1,23 @@
-import {useState} from "react";
+import {type ChangeEvent, useState} from "react";
 
 const initState:Todo = {
     title: 'Title',
     writer: 'writer'
 }
 
+
 function TodoAdd() {
 
     const [todoAdd, setTodoAdd] = useState(initState)
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+        const {name, value} = e.target
+
+        const newState = {...todoAdd, [name]: value}
+
+        setTodoAdd(newState)
+    }
 
     return (
         <div>
@@ -15,12 +25,12 @@ function TodoAdd() {
 
             <div>
                 TITLE
-                <input type='text' value={todoAdd.title}></input>
+                <input type='text' value={todoAdd.title} onChange={handleChange}></input>
             </div>
 
             <div>
                 WRITER
-                <input type='text' value={todoAdd.writer}></input>
+                <input type='text' value={todoAdd.writer} onChange={handleChange}></input>
             </div>
             <div>
             <button >SEND</button>
