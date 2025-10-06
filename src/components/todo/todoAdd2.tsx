@@ -22,7 +22,12 @@ function TodoAdd2() {
     return (
         <div>
             <h1>Todo Add2</h1>
-            <form>
+
+            {isPending && <h1>Pending................</h1>}
+
+            <h1>RESULT : {state}</h1>
+
+            <form action={formAction}>
                 <button>SUBMIT</button>
             </form>
         </div>
