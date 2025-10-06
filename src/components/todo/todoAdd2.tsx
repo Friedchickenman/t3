@@ -3,9 +3,14 @@ import {useActionState} from "react";
 
 async function submitAction (prevState: number, formData:FormData):Promise<number> {
 
+    const titleStr:FormDataEntryValue|null = formData.get('title')
+    const writerStr:FormDataEntryValue|null = formData.get('writer')
+
     console.log(prevState, formData)
 
-    const todoObj: Todo = {title: 'AAA', writer: 'psj'}
+    const todoObj: Todo = {
+        title: (titleStr) ? String(titleStr): '',
+        writer: (writerStr) ? String(writerStr): '', }
 
     return postTodo(todoObj)
 }
@@ -28,6 +33,13 @@ function TodoAdd2() {
             <h1>RESULT : {state}</h1>
 
             <form action={formAction}>
+                <div>
+                    <input type={'text'} name={'title'} value={'AAAAAAAAAAAA'}/>
+                </div>
+
+                <div>
+                    <input type={'text'} name={'writer'} value={'user00'}/>
+                </div>
                 <button>SUBMIT</button>
             </form>
         </div>
